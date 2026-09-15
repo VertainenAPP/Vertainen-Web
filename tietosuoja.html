@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tietosuojaseloste — Vertainen</title>
+  <meta name="description" content="Vertaisen tietosuojaseloste: mitä tietoja sovellus ja sivusto käsittelevät, miksi, ja mitkä ovat oikeutesi.">
+  <meta name="theme-color" content="#E4EAF0">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#sisalto">Siirry sisältöön</a>
+
+  <header class="site-header" id="yla">
+    <div class="wrap header-inner">
+      <a class="mark" href="index.html" aria-label="Vertainen, etusivu">
+        <span class="mark-symbol" aria-hidden="true"><i></i><i></i></span>
+        <span>Vertainen</span>
+      </a>
+      <nav class="nav" aria-label="Päänavigaatio">
+        <a href="index.html#tietoa">Tietoa</a>
+        <a href="tietosuoja.html" aria-current="page">Tietosuoja</a>
+        <a href="kayttoehdot.html">Käyttöehdot</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="sisalto">
+    <article class="wrap legal prose">
+      <p class="section-kicker">GDPR</p>
+      <h1>Tietosuojaseloste</h1>
+      <p class="updated">Sovellus: <strong>Vertainen</strong> (paketti <code>com.aichat.mobile</code>). Päivitetty 15.9.2026. Tämä seloste koskee Vertainen-sovellusta, sen palvelinta ja julkista esittelysivustoa.</p>
+
+      <h2>Rekisterinpitäjä</h2>
+      <p>
+        Rekisterinpitäjä on Vertainen-palvelun ylläpitäjä. Yhteydenotto tietosuoja-asioissa:
+        <a href="mailto:vertainen.app@gmail.com">vertainen.app@gmail.com</a>.
+      </p>
+      <p>Tietopyynnöt voi esittää myös sovelluksen Asetuksista.</p>
+
+      <h2>Mitä tämä seloste kattaa</h2>
+      <p>
+        Vertainen on Android-sovellus kahdenkeskiseen vertaistukeen. Palvelu ei edellytä käyttäjän
+        nimen, sähköpostiosoitteen tai puhelinnumeron ilmoittamista. Käyttäjät tunnistetaan palvelussa
+        satunnaisilla teknisillä tunnisteilla.
+      </p>
+      <p>
+        Palvelu ei kuitenkaan takaa täydellistä anonymiteettiä. Palvelun tekninen toiminta voi käsitellä
+        esimerkiksi tunnisteita, IP-osoitteita ja viestien metatietoja. Satunnaiset tunnisteet ja itse
+        kirjoittamasi sisältö ovat silti henkilötietoja.
+      </p>
+      <p>
+        Vertainen <strong>ei ole lääkinnällinen laite</strong> eikä se diagnosoi, hoida, paranna tai
+        ehkäise sairauksia. Se ei ole terapiaa eikä muuta terveydenhuoltoa. Kriisitilanteessa ota yhteys
+        hätänumeroon 112 tai paikalliseen kriisipäivystykseen.
+      </p>
+
+      <h2>Ikä</h2>
+      <p>Vertainen on tarkoitettu 16 vuotta täyttäneille. Sovellusta ei ole suunnattu alle 16-vuotiaille.</p>
+
+      <h2>Mitä tietoja käsitellään</h2>
+      <ul>
+        <li>
+          <strong>peerId:</strong> satunnainen 32 merkin hex-tunniste. Se on pysyvä tili-id, kunnes
+          poistat tilin. Sama id palautetaan laiteavaimella (<code>dc1</code>) asennuksen jälkeen.
+          Siihen kytketään listaukset, keskustelut, julkiset salausavaimet ja push-tunniste.
+        </li>
+        <li>
+          <strong>Istuntotunniste (peerToken):</strong> satunnainen merkkijono laitteella (SecureStore).
+          Palvelin tallentaa vain SHA-256-tiivisteen ja vanhenemisajan (24 tuntia), ei selväkielistä tokenia.
+        </li>
+        <li>
+          <strong>dc1 (laiteavain):</strong> muoto <code>dc1.{credentialId}.{mac}</code>. Palvelin
+          tallentaa vain <code>credentialId</code>-osan. Mac sitoo avaimen peerId:hen (HMAC). Käyttö:
+          tilin palautus asennuksen jälkeen ja chat-kutsujen laitetarkistus. Ei Androidin mainostunniste
+          (Advertising ID).
+        </li>
+        <li>
+          <strong>Ilmoitukset:</strong> otsikko, aihe ja kuvaus tallennetaan palvelimelle selkotekstinä
+          ja näkyvät muille käyttäjille. Erillistä diagnoosi- tai terveyskenttää ei ole; käyttäjä voi
+          silti itse kirjoittaa arkaluonteista.
+        </li>
+        <li>
+          <strong>Vertaistukiviestit (E2EE):</strong> palvelin ei näe viestin leipää. Levylle jäävät
+          salattu kuori (ciphertext) ja metadata: keskustelu-id, osapuolten peerId, aikaleimat,
+          salausversio, <code>sessionId</code> (E2EE-session tiiviste), envelope-tiiviste ja julkinen
+          X3DH-handshake. Yksityisiä avaimia ei tallenneta palvelimelle. Chat-avaimen menetys tarkoittaa,
+          että vanhoja viestejä ei voi palauttaa selkotekstinä.
+        </li>
+        <li>
+          <strong>Julkiset E2EE-avaimet:</strong> X3DH-julkinen nippu palvelimella, jotta toinen
+          osapuoli voi aloittaa salatun keskustelun.
+        </li>
+        <li>
+          <strong>Tekoälytuki:</strong> valinnainen; ks. erillinen osio alla. Historia säilyy puhelimessa.
+        </li>
+        <li>
+          <strong>Push:</strong> Expo-push-tunniste, jos sallit ilmoitukset. Esikatseluasetus
+          (näytetäänkö ilmoituksen aihe) tallennetaan tiliin.
+        </li>
+        <li>
+          <strong>Näppäimistö (IME):</strong> vain ylläpidolle; proofread lähettää kentän tekstin
+          palvelimen Geminiin. Tätä tekstiä ei tallenneta tiliaineistoon.
+        </li>
+        <li>
+          <strong>Suodatus ja ylläpito:</strong> varoitusrivit (peerId, keskustelu, aika; ei syytekstiä),
+          estot (block) ja ylläpidon muistiinpanot tunnisteeseen.
+        </li>
+        <li>
+          <strong>IP-osoite:</strong> IP-osoitetta ei tallenneta tiliaineistoon. Sitä käytetään pyynnön
+          aikana muistissa väärinkäytön rajoittamiseen (rate limit). Varoituslokeissa (palvelimen konsoli
+          / Server Manager) voi näkyä IP ja lyhyt token-sormenjälki, jos kirjautuminen epäonnistuu.
+          Erillistä IP-lokitiedostoa ei pidetä. Välityspalvelimen X-Forwarded-For -osoitteisiin ei luoteta.
+        </li>
+      </ul>
+
+      <h2>Tekoälytuki (Gemini)</h2>
+      <p>
+        Tekoälytuki on valinnainen. Vertaistuen päästä päähän salattuja viestejä ei lähetetä Geminiin.
+        Jos et avaa AI-tukea etkä lähetä viestiä, dataa ei lähde malliin. Ilman Gemini API -avainta
+        (muut kuin ylläpito) kutsu ei lähde. Akuutissa kriisissä vastaus voi tulla palvelimen
+        valmistekstinä ilman Gemini-kutsua.
+      </p>
+      <p>
+        Kun lähetät viestin AI-tukeen, Googlelle lähtee järjestelmäohje (valittu persoona) ja
+        <strong>koko avoin keskusteluhistoria</strong> (käyttäjä- ja avustajaviestit), ei vain
+        viimeinen viesti. Enintään 100 viestiä kutsuissa. Malli on Asetuksissa valitsemasi Gemini-malli
+        (oletus Gemini 2.5 Flash). Kutsu menee osoitteeseen <code>generativelanguage.googleapis.com</code>.
+      </p>
+      <p>
+        Muut käyttäjät: puhelin kutsuu Googlea suoraan omalla avaimella. Palvelin näkee saman ketjun
+        prepare-kutsussa turvallisuussuodatusta varten, mutta ei tallenna sitä tiliaineistoon.
+        Ylläpito: palvelin kutsuu Googlea palvelimen avaimella.
+      </p>
+      <p>
+        Google on kolmas osapuoli. Säilytys, lokitus ja mahdollinen käyttö mallien kehitykseen
+        määräytyvät Googlen voimassa olevista Gemini API -ehdoista ja siitä, onko API-avaimen
+        Google Cloud -projekti laskutettu (Paid Services) vai ei. Vertainen ei hallitse Googlen
+        säilytystä eikä lupaa, että Google ei tallenna tai kouluta datalla. Ehdot:
+        <a href="https://ai.google.dev/gemini-api/terms">ai.google.dev/gemini-api/terms</a>.
+      </p>
+      <p>
+        Jos verkkohaku on päällä, viimeinen käyttäjäviesti voi lähteä Tavilyyn. Puhevastaukset
+        lähettävät synteesitekstin Microsoft Edge -puhesynteesiin. Näppäimistön proofread (vain
+        ylläpito) lähettää kentän tekstin palvelimen Geminiin; sitä ei tallenneta tiliaineistoon.
+      </p>
+
+      <h2>Miksi tietoja käsitellään</h2>
+      <p>
+        Käsittelyn tarkoitus on tarjota vertaistukipalvelu: ilmoitukset, kahdenkeskinen chat,
+        suodatus, ilmoitukset puhelimeen ja valinnainen AI-tuki. Oikeusperuste on palvelun
+        tarjoaminen (sopimus tai sitä vastaava käyttö) sekä tarvittaessa oikeutettu etu
+        (turvallisuus, väärinkäytön esto, palvelimen toiminta).
+      </p>
+
+      <h2>Säilytys ja siirto</h2>
+      <p>
+        Tunnisteet laitteella: SecureStore / Keystore. Tekoälyhistoria paikallisessa tallennuksessa.
+        Vertaistuen yksityiset avaimet salattuna laitteella. Palvelimen tiliaineisto on
+        <code>peer-support.json</code> (ei IP-kenttää).
+      </p>
+      <p>
+        Julkisessa palvelussa yhteys sovelluksen ja palvelimen välillä on <strong>HTTPS</strong>.
+        Julkinen esittelysivusto tarjotaan HTTPS:llä. Paikallisessa kehityksessä tai LAN-testissä
+        yhteys voi olla HTTP.
+      </p>
+
+      <h2>Sivusto ja evästeet</h2>
+      <p>
+        Julkinen esittelysivusto (GitHub Pages) ja tämä selostesivu ovat staattisia: ne eivät aseta
+        evästeitä, eivät käytä analytiikkaa eivätkä mainosseurantaa. Fontit ladataan samalta sivustolta
+        esittelysivustolla. Evästebanneria ei tarvita.
+      </p>
+
+      <h2>Säilytysaika ja poisto</h2>
+      <p>
+        Automaattista vanhenemista ei ole, ellei alla toisin sanota. Erityisesti salatuilla
+        keskustelukuorilla <strong>ei ole automaattista 30 päivän poistoa</strong>.
+      </p>
+      <ul>
+        <li>
+          <strong>Tili, peerId, dc1, push-tunniste ja julkiset E2EE-avaimet:</strong> kunnes poistat
+          tilin tai palvelu päättyy.
+        </li>
+        <li>
+          <strong>Istuntotunnisteen tiiviste (peerToken):</strong> voimassa 24 tuntia. Vanha tiiviste
+          voi jäädä tiliin vanhenemisen jälkeen, kunnes kirjaudut uudelleen tai kirjaudut ulos.
+        </li>
+        <li>
+          <strong>Ilmoitukset:</strong> ei automaattista vanhenemista. Avoimen ilmoituksen voit poistaa.
+          Matchatun ilmoituksen rivi jää, kunnes tili poistetaan tai ilmoittaja poistuu keskustelusta.
+          Porttikielto sulkee avoimet ilmoitukset, mutta ei poista riviä.
+        </li>
+        <li>
+          <strong>Keskustelukuoret</strong> (salattu kuori ja metadata): säilyvät palvelimella kunnes
+          tili poistetaan, odottava ilmoitus poistetaan, ilmoittaja poistuu keskustelusta (kuoret,
+          keskustelu ja listaus pois) tai liittyjä poistuu (kuoret pois, listaus avataan uudelleen).
+          Estä tai sulje merkitsee keskustelun suljetuksi: sovellus ei enää näytä viestejä, mutta kuoret
+          jäävät levylle.
+        </li>
+        <li>
+          <strong>IP-osoite:</strong> vain pyynnön aikana muistissa väärinkäytön rajoittamiseen (noin
+          1 minuutin ikkuna; vanhat merkinnät voidaan siivota noin 5 minuutin jälkeen). Verkkohaun
+          (Tavily) ikkuna on noin 1 tunti. IP-osoitetta ei tallenneta tiliaineistoon.
+        </li>
+        <li>
+          <strong>Konsoliloki:</strong> palvelin kirjoittaa stdout-lokiin (ILogger). Erillistä
+          rolling-lokitiedostoa ei ole. Säilytys riippuu isännästä (prosessi / Server Manager).
+          Automaattista poistoa ei ole määritelty koodissa. Epäonnistunut kirjautuminen voi sisältää
+          IP-osoitteen ja lyhyen token-sormenjäljen.
+        </li>
+        <li>
+          <strong>Varoitusrivit:</strong> laskenta 7 vuorokauden ikkunassa. Rivit säilyvät
+          tiliaineistossa, kunnes tili poistetaan.
+        </li>
+        <li>
+          <strong>Tekoälyhistoria:</strong> vain puhelimessa. Voit poistaa keskustelun Historia-näkymästä.
+          Tilin poisto sovelluksesta tyhjentää paikallisen historian. Palvelin ei tallenna AI-ketjua
+          tiliaineistoon. Googlen säilytys: ks. osio Tekoälytuki.
+        </li>
+      </ul>
+      <p>
+        Voit poistaa tilin sovelluksen Asetuksista (Yksityisyys → Poista tili). Web-lomake on
+        palvelimen polussa <code>/tilin-poisto</code> (laiteavain <code>dc1</code>); avaa se
+        samasta osoitteesta kuin API. Tällä esittelysivustolla lomaketta ei ole, koska poisto
+        vaatii palvelimen. Poisto hävittää identiteetin, listaukset, keskustelukuoret, avainmateriaalin,
+        push-tunnisteen, varoitukset ja estot (block) palvelimelta sekä paikallisen historian ja
+        istunnon laitteella, kun poisto tehdään sovelluksesta.
+      </p>
+      <p>
+        Turvallisuussyistä laitteeseen sidottu <strong>porttikielto (ban)</strong> voidaan säilyttää
+        HMAC-tiivisteenä tai <code>credentialId</code>-tunnisteena ilman nimeä tai viestisisältöä,
+        jotta kieltoa ei voi kiertää uudella asennuksella tai restorella. Määräaikainen kielto on
+        1 tai 7 vuorokautta; sen jälkeen sitä ei enää sovelleta, vaikka rivi voi jäädä tiedostoon.
+        Pysyvä kielto säilyy toistaiseksi. Laiterivi voi jäädä tilin poiston jälkeen. Tämä kerrotaan
+        tässä selosteessa Playn User Data -käytännön mukaisesti.
+      </p>
+
+      <h2>Kenelle tietoja luovutetaan</h2>
+      <p>Tietoja ei myydä. Tietoja ei käytetä mainontaan. Kolmansia osapuolia voivat olla:</p>
+      <ul>
+        <li>Expo (push-ilmoitukset), jos ilmoitukset ovat päällä</li>
+        <li>Google Gemini (AI-tuki; ks. osio Tekoälytuki)</li>
+        <li>Tavily (verkkohaku), jos ominaisuus on päällä</li>
+        <li>Microsoft Edge -puhesynteesi, jos TTS on päällä</li>
+        <li>GitHub Pages julkisen esittelysivuston jakeluun</li>
+        <li>Oma palvelin, jolla vertaistuen tiliaineisto sijaitsee</li>
+      </ul>
+      <p>
+        Jos kolmas osapuoli sijaitsee EU/ETA-alueen ulkopuolella, siirto perustuu kyseisen
+        palvelun ehtoihin ja tarvittaessa Euroopan komission mallisopimuslausekkeisiin.
+      </p>
+
+      <h2>Oikeudet</h2>
+      <p>
+        Voit pyytää tietoa siitä, mitä sinusta käsitellään, tilin tai ilmoituksen poistamista
+        sekä käsittelyn rajoittamista, jos se lain mukaan kuuluu sinulle. Pyynnöt: Asetukset-välilehti,
+        palvelimen <code>/tilin-poisto</code> tai
+        <a href="mailto:vertainen.app@gmail.com">vertainen.app@gmail.com</a>.
+      </p>
+      <p>
+        Voit tehdä valituksen Tietosuojavaltuutetun toimistolle:
+        <a href="https://tietosuoja.fi">tietosuoja.fi</a>.
+      </p>
+      <p class="legal-note">
+        Tämä seloste kuvaa nykyistä toteutusta. Se ei ole lakineuvontaa.
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Vertainen</p>
+      <ul class="footer-links">
+        <li><a href="tietosuoja.html" aria-current="page">Tietosuoja</a></li>
+        <li><a href="kayttoehdot.html">Käyttöehdot</a></li>
+      </ul>
+      <p class="mute">Ei evästeitä. Ei seurantaa.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
