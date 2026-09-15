@@ -1,0 +1,22 @@
+# Vertainen
+
+> Android-sovellus kahdenkeskiseen vertaistukeen. Ei terapiaa eikä ammattiapua.
+
+## Yhteenveto
+
+- Nimeä tai sähköpostia ei vaadita; käyttäjät tunnistetaan satunnaisilla teknisillä tunnisteilla.
+- Kahdenkeskiset chat-viestit salataan päästä päähän (palvelin ei lue leipätekstiä).
+- Ilmoitusten otsikko, aihe ja teksti ovat julkisia listalla.
+- Tarkoitettu 16 vuotta täyttäneille.
+- Maksuton. Android ensin; iOS tulossa.
+- Kriisi: MIELI Kriisipuhelin 09 2525 0111 (24/7), https://mieli.fi
+
+## Sivut
+
+- https://vertainen.com/ — esittelysivu ja UKK
+- https://vertainen.com/tietosuoja.html — tietosuojaseloste
+- https://vertainen.com/kayttoehdot.html — käyttöehdot
+
+## Yhteystiedot
+
+- Email: vertainen.app@gmail.com

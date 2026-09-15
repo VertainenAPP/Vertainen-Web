@@ -4,9 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vertainen — mobiilisovellus kahdenkeskiseen vertaistukeen</title>
-  <meta name="description" content="Vertainen on Android-mobiilisovellus anonyymiin kahdenkeskiseen vertaistukeen. Ei yhtä diagnoosia. Viestit salataan päästä päähän. MIELI Kriisipuhelin 09 2525 0111.">
+  <meta name="description" content="Vertainen on Android-sovellus kahdenkeskiseen vertaistukeen ilman nimeä tai sähköpostia. Viestit salataan päästä päähän. MIELI Kriisipuhelin 09 2525 0111.">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#E4EAF0">
+  <link rel="canonical" href="https://vertainen.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:url" content="https://vertainen.com/">
+  <meta property="og:site_name" content="Vertainen">
+  <meta property="og:title" content="Vertainen — mobiilisovellus kahdenkeskiseen vertaistukeen">
+  <meta property="og:description" content="Vertainen on Android-sovellus kahdenkeskiseen vertaistukeen ilman nimeä tai sähköpostia. Viestit salataan päästä päähän. MIELI Kriisipuhelin 09 2525 0111.">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vertainen — mobiilisovellus kahdenkeskiseen vertaistukeen">
+  <meta name="twitter:description" content="Vertainen on Android-sovellus kahdenkeskiseen vertaistukeen ilman nimeä tai sähköpostia. Viestit salataan päästä päähän.">
+
   <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://vertainen.com/#organization",
+        "name": "Vertainen",
+        "url": "https://vertainen.com/",
+        "email": "vertainen.app@gmail.com",
+        "description": "Android-sovellus kahdenkeskiseen vertaistukeen. Ei terapiaa; chat-viestit salataan päästä päähän."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vertainen.com/#website",
+        "name": "Vertainen",
+        "url": "https://vertainen.com/",
+        "description": "Android-sovellus kahdenkeskiseen vertaistukeen. Viestit salataan päästä päähän.",
+        "inLanguage": "fi",
+        "publisher": { "@id": "https://vertainen.com/#organization" }
+      },
+      {
+        "@type": "MobileApplication",
+        "name": "Vertainen",
+        "operatingSystem": "Android",
+        "applicationCategory": "HealthApplication",
+        "description": "Kahdenkeskinen vertaistuki puhelimessa. Ei vaadi nimeä tai sähköpostia. Päästä päähän salatut chatit. Tarkoitettu 16 vuotta täyttäneille.",
+        "url": "https://vertainen.com/",
+        "publisher": { "@id": "https://vertainen.com/#organization" },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/ComingSoon"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://vertainen.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Pitääkö rekisteröityä?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ei. Nimeä, sähköpostia tai tiliä ei kysytä. Sovellus luo satunnaisen teknisen tunnisteen puhelimeen. Palvelu ei takaa täydellistä anonymiteettiä; yksityiskohdat ovat tietosuojaselosteessa."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kuka näkee viestini?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ilmoituksen otsikko, aihe ja teksti näkyvät muille listalla selkotekstinä. Kahdenkeskinen chat salataan päästä päähän, joten palvelin ja ylläpito eivät pysty lukemaan viestejä: heillä ei ole avainta, vain salattu tieto."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Voiko toisen estää tai ilmoituksen poistaa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Chatissa Estä sulkee keskustelun, ettekä voi enää jutella keskenänne. Oman ilmoituksen voi poistaa. Avoimia ilmoituksia on yksi kerrallaan; uuden voi julkaista, kun edellinen on poistettu tai joku on liittynyt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Toimiiko iPhonessa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tällä hetkellä Vertainen on Android-sovellus. iOS-versio on tulossa."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Onko Vertainen maksuton?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kyllä. Sovelluksessa ei ole tilausta. Vertainen on maksuton ladata ja käyttää."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mitä jos poistan sovelluksen tai vaihdan puhelinta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Salatut chatit eivät palaudu ilman avainta, joka on laitteella. Jos sovellus poistetaan tai puhelin vaihtuu ilman avaimen siirtoa, vanhoja viestejä ei voi lukea. Julkinen ilmoitus jää palvelimelle, kunnes sen poistaa."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kenelle Vertainen on tarkoitettu iän suhteen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vertainen on tarkoitettu 16 vuotta täyttäneille. Sovellusta ei ole suunnattu alle 16-vuotiaille."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip" href="#sisalto">Siirry sisältöön</a>
@@ -33,9 +148,9 @@
         <p class="eyebrow"><span aria-hidden="true"></span>Mobiilisovellus Androidille</p>
         <h1 id="hero-otsikko">Kahdenkeskinen vertaistuki, ilman ryhmää.</h1>
         <p class="lede">
-          Vertainen on puhelimeen asennettava sovellus: anonyymi paikka puhua ihmiselle, jolla on
-          samankaltainen kokemus. Mahdollisia ovat vain kahdenkeskiset chatit — toinen voi keskittyä
-          juuri sinun tilanteeseesi.
+          Vertainen on Android-sovellus kahdenkeskiseen vertaistukeen. Nimeä tai sähköpostia ei
+          vaadita; chat-viestit salataan päästä päähän. Tukea saa ihmiseltä, jolla on samankaltainen
+          kokemus — ei ryhmässä.
         </p>
         <p class="hero-actions">
           <a class="btn btn-primary" href="#tietoa">Tietoa sovelluksesta</a>
@@ -70,17 +185,18 @@
             <p>
               Vertainen ei ole sidottu yhteen sairauteen, vammaan tai diagnoosiin. Tukea voi hakea
               monenlaisista syistä: elämäntilanne, kokemus tai aihe, josta haluaa puhua kahden kesken.
-              Toinen osapuoli on vertainen, ei ammattilainen.
+              Toinen osapuoli on vertainen, ei ammattilainen. Palvelu on tarkoitettu
+              <strong>16 vuotta täyttäneille</strong>.
             </p>
           </article>
           <article class="info-card">
             <span class="card-mark paired" aria-hidden="true">● ●</span>
             <h3>Idea</h3>
             <p>
-              Anonyymi vertaistuki ihmisten välillä, joilla on samankaltainen kokemus. Mahdollisia
-              ovat vain kahdenkeskiset chat-keskustelut. Kahdenkeskisessä tuessa toinen voi keskittyä
-              juuri sinun tilanteeseesi ja aiheisiin, jotka sinua pohdituttavat. Ryhmässä puhe
-              jakautuu, eikä jokainen saa samaa tilaa. Vastavuoroisuus on myös selkeämpää.
+              Vertaistuki ihmisten välillä, joilla on samankaltainen kokemus. Mahdollisia ovat vain
+              kahdenkeskiset chat-keskustelut. Kahdenkeskisessä tuessa toinen voi keskittyä juuri
+              sinun tilanteeseesi ja aiheisiin, jotka sinua pohdituttavat. Ryhmässä puhe jakautuu,
+              eikä jokainen saa samaa tilaa. Vastavuoroisuus on myös selkeämpää.
             </p>
           </article>
         </div>
@@ -173,7 +289,12 @@
         <p>
           Jos tilanne on akuutti, soita
           <a href="tel:+358925250111">MIELI Kriisipuhelimeen 09 2525 0111</a>
-          (24/7). Vertainen ei korvaa ammattiapua.
+          (24/7). Lisätietoa:
+          <a href="https://mieli.fi" rel="noopener noreferrer">mieli.fi</a>.
+          Vertainen ei korvaa ammattiapua. Tietosuojasta:
+          <a href="tietosuoja.html">tietosuojaseloste</a>
+          ja
+          <a href="https://tietosuoja.fi" rel="noopener noreferrer">tietosuoja.fi</a>.
         </p>
       </div>
     </section>
@@ -185,8 +306,9 @@
         <details>
           <summary>Pitääkö rekisteröityä?</summary>
           <p>
-            Ei. Nimeä, sähköpostia tai tiliä ei kysytä. Sovellus luo anonyymin tunnisteen
-            puhelimeen, jotta keskustelut pysyvät samassa laitteessa.
+            Ei. Nimeä, sähköpostia tai tiliä ei kysytä. Sovellus luo satunnaisen teknisen tunnisteen
+            puhelimeen. Palvelu ei takaa täydellistä anonymiteettiä; yksityiskohdat ovat
+            <a href="tietosuoja.html">tietosuojaselosteessa</a>.
           </p>
         </details>
         <details>
@@ -223,6 +345,13 @@
             Salatut chatit eivät palaudu ilman avainta, joka on laitteella. Jos sovellus poistetaan
             tai puhelin vaihtuu ilman avaimen siirtoa, vanhoja viestejä ei voi lukea. Julkinen
             ilmoitus jää palvelimelle, kunnes sen poistaa.
+          </p>
+        </details>
+        <details>
+          <summary>Kenelle Vertainen on tarkoitettu iän suhteen?</summary>
+          <p>
+            Vertainen on tarkoitettu 16 vuotta täyttäneille. Sovellusta ei ole suunnattu alle
+            16-vuotiaille.
           </p>
         </details>
       </div>
