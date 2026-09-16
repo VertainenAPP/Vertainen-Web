@@ -2,6 +2,9 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; font-src 'self'; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Käyttöehdot — Vertainen</title>
   <meta name="description" content="Vertaisen käyttöehdot: ikäraja, vertaistuki ei ole terapiaa, ilmoitukset, estot ja päästä päähän salaus.">
@@ -46,7 +49,10 @@
         <span class="mark-symbol" aria-hidden="true"><i></i><i></i></span>
         <span>Vertainen</span>
       </a>
-      <nav class="nav" aria-label="Päänavigaatio">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="paanav" aria-label="Avaa valikko">
+        <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+      <nav class="nav" id="paanav" aria-label="Päänavigaatio">
         <a href="index.html#tietoa">Tietoa</a>
         <a href="tietosuoja.html">Tietosuoja</a>
         <a href="kayttoehdot.html" aria-current="page">Käyttöehdot</a>

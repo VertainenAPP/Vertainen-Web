@@ -2,6 +2,9 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; font-src 'self'; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vertainen — mobiilisovellus kahdenkeskiseen vertaistukeen</title>
   <meta name="description" content="Vertainen on Android-sovellus kahdenkeskiseen vertaistukeen ilman nimeä tai sähköpostia. Viestit salataan päästä päähän. MIELI Kriisipuhelin 09 2525 0111.">
@@ -132,7 +135,10 @@
         <span class="mark-symbol" aria-hidden="true"><i></i><i></i></span>
         <span>Vertainen</span>
       </a>
-      <nav class="nav" aria-label="Päänavigaatio">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="paanav" aria-label="Avaa valikko">
+        <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+      <nav class="nav" id="paanav" aria-label="Päänavigaatio">
         <a href="#tietoa">Tietoa</a>
         <a href="#tuki">Tuki</a>
         <a href="#ukk">UKK</a>
@@ -290,10 +296,7 @@
           <a href="tel:+358925250111">MIELI Kriisipuhelimeen 09 2525 0111</a>
           (24/7). Lisätietoa:
           <a href="https://mieli.fi" rel="noopener noreferrer">mieli.fi</a>.
-          Vertainen ei korvaa ammattiapua. Tietosuojasta:
-          <a href="tietosuoja.html">tietosuojaseloste</a>
-          ja
-          <a href="https://tietosuoja.fi" rel="noopener noreferrer">tietosuoja.fi</a>.
+          Vertainen ei korvaa ammattiapua.
         </p>
       </div>
     </section>

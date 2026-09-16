@@ -2,6 +2,9 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; font-src 'self'; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tietosuojaseloste — Vertainen</title>
   <meta name="description" content="Vertaisen tietosuojaseloste: mitä tietoja sovellus ja sivusto käsittelevät, miksi, ja mitkä ovat oikeutesi.">
@@ -46,7 +49,10 @@
         <span class="mark-symbol" aria-hidden="true"><i></i><i></i></span>
         <span>Vertainen</span>
       </a>
-      <nav class="nav" aria-label="Päänavigaatio">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="paanav" aria-label="Avaa valikko">
+        <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+      <nav class="nav" id="paanav" aria-label="Päänavigaatio">
         <a href="index.html#tietoa">Tietoa</a>
         <a href="tietosuoja.html" aria-current="page">Tietosuoja</a>
         <a href="kayttoehdot.html">Käyttöehdot</a>
@@ -166,7 +172,7 @@
         määräytyvät Googlen voimassa olevista Gemini API -ehdoista ja siitä, onko API-avaimen
         Google Cloud -projekti laskutettu (Paid Services) vai ei. Vertainen ei hallitse Googlen
         säilytystä eikä lupaa, että Google ei tallenna tai kouluta datalla. Ehdot:
-        <a href="https://ai.google.dev/gemini-api/terms">ai.google.dev/gemini-api/terms</a>.
+        <a href="https://ai.google.dev/gemini-api/terms" rel="noopener noreferrer">ai.google.dev/gemini-api/terms</a>.
       </p>
       <p>
         Jos verkkohaku on päällä, viimeinen käyttäjäviesti voi lähteä Tavilyyn. Puhevastaukset
@@ -289,7 +295,7 @@
       </p>
       <p>
         Voit tehdä valituksen Tietosuojavaltuutetun toimistolle:
-        <a href="https://tietosuoja.fi">tietosuoja.fi</a>.
+        <a href="https://tietosuoja.fi" rel="noopener noreferrer">tietosuoja.fi</a>.
       </p>
       <p class="legal-note">
         Tämä seloste kuvaa nykyistä toteutusta. Se ei ole lakineuvontaa.
